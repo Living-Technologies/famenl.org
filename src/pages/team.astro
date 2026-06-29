@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const members = [
+  {
+    name: 'Dr. J.J. Koehorst',
+    role: 'Assistant Professor',
+    affiliation: 'Wageningen University & Research',
+    affiliationUrl: 'https://www.wur.nl',
+    bio: 'Expert on FAIR By Design research in the world of microbial systems and experimental metadata.',
+    photo: '/team/jasper-koehorst.jpg',
+    initials: 'JK',
+  },
+  {
+    name: 'Dr. K. Wolstencroft',
+    role: 'Associate Professor',
+    affiliation: 'Amsterdam UMC',
+    affiliationUrl: 'https://www.amsterdamumc.nl',
+    bio: 'Expert on FAIR data and knowledge integration, and reproducible research in omics and bioimaging.',
+    photo: '/team/katherine-wolstencroft.jpg',
+    initials: 'KW',
+  },
+  {
+    name: 'Dr. B. Metcalfe',
+    role: 'Postdoc',
+    affiliation: 'Wageningen University & Research',
+    affiliationUrl: 'https://www.wur.nl',
+    bio: 'Expert on computer systems, architectures and network integration.',
+    photo: '/team/b-metcalfe.jpg',
+    initials: 'BM',
+  },
+  {
+    name: 'Dr. P. de Boer',
+    role: 'Data Steward',
+    affiliation: 'UMCG',
+    affiliationUrl: 'https://www.umcg.nl',
+    bio: 'Expert on data management in light and electron microscopy.',
+    photo: '/team/p-de-boer.jpg',
+    initials: 'PdB',
+  },
+  {
+    name: 'Dr. S. van Beuningen',
+    role: 'Assistant Professor',
+    affiliation: 'UMC Utrecht',
+    affiliationUrl: 'https://www.umcutrecht.nl',
+    bio: 'Expert on data science and data management.',
+    photo: '/team/s-van-beuningen.jpg',
+    initials: 'SvB',
+  },
+  {
+    name: "Prof. Dr. P. 't Hoen",
+    role: 'Full Professor',
+    affiliation: 'Radboud UMC',
+    affiliationUrl: 'https://www.radboudumc.nl',
+    bio: 'Expert on bioinformatics and data integration.',
+    photo: "/team/p-t-hoen.jpg",
+    initials: "PtH",
+  },
+];
+---
+<Layout title="Team">
+  <section>
+    <div class="container">
+      <div class="section-label">People</div>
+      <h1 class="section-title">Meet the Team</h1>
+      <p class="section-lead">
+        The people driving FAMENL forward, bringing expertise in bioinformatics, knowledge representation, and
+        research infrastructure.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;">
+        {members.map(m => (
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);text-align:center;">
+            <div style="background:var(--green-xl);padding:2rem 2rem 1.25rem;">
+              {/* Swap src for a real photo once available — falls back to initials circle */}
+              <div style="width:96px;height:96px;border-radius:50%;margin:0 auto;overflow:hidden;border:3px solid var(--white);box-shadow:0 2px 8px rgba(0,0,0,.12);">
+                <img
+                  src={m.photo}
+                  alt={m.name}
+                  width="96"
+                  height="96"
+                  style="width:100%;height:100%;object-fit:cover;"
+                  onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
+                />
+                <div style="display:none;width:100%;height:100%;background:var(--green);color:#fff;font-weight:700;font-size:1.4rem;align-items:center;justify-content:center;">
+                  {m.initials}
+                </div>
+              </div>
+            </div>
+            <div style="padding:1rem 1.25rem 1.5rem;">
+              <h2 style="font-size:1rem;font-weight:600;margin-bottom:.25rem;">{m.name}</h2>
+              <div style="font-size:.875rem;color:var(--accent);font-weight:500;margin-bottom:.2rem;">{m.role}</div>
+              <a href={m.affiliationUrl} target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:var(--muted);margin-bottom:.6rem;display:block;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">{m.affiliation}</a>
+              <div style="font-size:.85rem;color:var(--muted);line-height:1.5;">{m.bio}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* To add a photo, place a JPEG named after the person (e.g. jasper-koehorst.jpg) in the public/team/ folder. It will appear automatically. */}
+    </div>
+  </section>
+</Layout>

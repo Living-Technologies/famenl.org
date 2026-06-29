@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const partners = [
+  {
+    name: 'hDMT-INFRA-StemCells',
+    initials: 'hD',
+    url: 'https://www.hdmt.technology/',
+    nodes: ['UMC Utrecht', 'Leiden UMC'],
+  },
+  {
+    name: 'NEMI',
+    initials: 'NE',
+    url: 'https://nemi.microscopie.nl/',
+    nodes: ['UMC Groningen', 'University of Maastricht'],
+  },
+  {
+    name: 'NL-BioImaging',
+    initials: 'NB',
+    url: 'https://eurobioimaging.nl/',
+    nodes: ['Amsterdam UMC', 'UMC Groningen', 'University of Leiden', 'LUMC', 'University of Maastricht'],
+  },
+  {
+    name: 'UNLOCK',
+    initials: 'UL',
+    url: 'https://m-unlock.com/',
+    nodes: ['Wageningen University & Research', 'Delft University of Technology'],
+  },
+  {
+    name: 'Wageningen University & Research',
+    initials: 'WUR',
+    url: 'https://www.wur.nl',
+    nodes: ['Laboratory of Systems and Synthetic Biology'],
+  },
+  {
+    name: 'X-OMICS',
+    initials: 'XO',
+    url: 'https://x-omics.nl',
+    nodes: ['Radboud UMC'],
+  },
+];
+---
+<Layout title="Partners">
+  <section>
+    <div class="container">
+      <div class="section-label">Collaboration</div>
+      <h1 class="section-title">Participating Organizations</h1>
+      <p class="section-lead">
+        FAMENL brings together a diverse coalition of Dutch life science research infrastructures and academic
+        medical centers.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;">
+        {partners.map(p => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer"
+            style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1rem;text-align:center;box-shadow:var(--shadow);text-decoration:none;display:block;transition:transform .15s,box-shadow .15s;"
+            onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.1)'"
+            onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--green-xl);color:var(--green);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem;">
+              {p.initials}
+            </div>
+            <span style="font-size:.9rem;font-weight:600;color:var(--text);">{p.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

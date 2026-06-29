@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="About" description="About FAMENL · FAIR Metadata Exchange Netherlands.">
+  <section>
+    <div class="prose">
+      <div class="section-label">About</div>
+      <h1 class="section-title">About FAMENL</h1>
+      <p class="section-lead">
+        FAMENL (FAIR Metadata Exchange Netherlands) is a collaborative initiative that builds shared
+        metadata infrastructure for Dutch life science research infrastructures.
+      </p>
+
+      <h2 style="font-size:1.15rem;font-weight:600;margin:2rem 0 .75rem;">The Problem</h2>
+      <p style="color:var(--muted);margin-bottom:1.5rem;">
+        Life science research infrastructures in the Netherlands each operate with their own data management
+        systems tailored to specific domains, bioimaging, omics, stem cell research, environmental monitoring.
+        These systems cannot speak to each other. Metadata produced in one domain is invisible to another,
+        making cross-disciplinary data reuse and integration unnecessarily difficult.
+      </p>
+
+      <h2 style="font-size:1.15rem;font-weight:600;margin:2rem 0 .75rem;">Our Approach</h2>
+      <p style="color:var(--muted);margin-bottom:1rem;">
+        FAMENL develops FAIR metadata management layers that sit between domain-specific platforms and generic
+        storage solutions. Rather than replacing existing tools, we build bridges: using the ISA standard to
+        describe dataset relationships, deploying FAIRDOM-SEEK as a unified user-facing interface, and packaging
+        research outputs as Digital Research Objects in RO-Crate format.
+      </p>
+      <p style="color:var(--muted);margin-bottom:1.5rem;">
+        A key principle is accessibility. FAMENL delivers simple, tabular metadata templates so that individual
+        researchers can produce standards-compliant data without requiring deep technical expertise.
+      </p>
+
+      <blockquote style="border-left:4px solid #52b788;background:#d8f3dc;border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;font-family:'Lora',Georgia,serif;font-style:italic;font-size:1.05rem;color:#2d6a4f;margin:2rem 0;">
+        "Simple, tabular data templates, empowering individuals to produce data compliant with community
+        metadata standards without requiring technical expertise."
+      </blockquote>
+
+      <h2 style="font-size:1.15rem;font-weight:600;margin:2rem 0 .75rem;">Key Technologies</h2>
+      <ul style="color:var(--muted);padding-left:1.5rem;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;">
+        <li><strong style="color:var(--text);">ISA framework</strong>: describes the relationships between investigations, studies, and assays across domains</li>
+        <li><strong style="color:var(--text);">FAIRDOM-SEEK</strong>: unified frontend with multi-level access permissions across infrastructure boundaries</li>
+        <li><strong style="color:var(--text);">RO-Crate</strong>: packages datasets and metadata as portable Digital Research Objects</li>
+        <li><strong style="color:var(--text);">REMBI</strong>: bioimaging metadata standard for microscopy</li>
+      </ul>
+
+      <h2 style="font-size:1.15rem;font-weight:600;margin:2rem 0 .75rem;">Relation to prepFAME</h2>
+      <p style="color:var(--muted);">
+        prepFAME was a 12-month preparatory project that mapped existing metadata standards and requirements
+        across Dutch life science research infrastructures. Its findings directly informed the design and
+        scope of FAMENL.
+      </p>
+    </div>
+  </section>
+</Layout>
