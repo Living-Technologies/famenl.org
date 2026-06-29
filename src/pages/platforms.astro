@@ -5,24 +5,28 @@ const platforms = [
   {
     name: 'FAIRDOM-SEEK',
     initials: 'SK',
+    photo: '/platforms/fairdom-seek.jpg',
     description: 'A web-based resource for sharing scientific research assets. Used as the integrated platform for managing experimental metadata across life science research infrastructures.',
     url: 'https://seek.famenl.org',
   },
   {
     name: 'FAIR-DS',
     initials: 'FDS',
+    photo: '/platforms/fair-ds.jpg',
     description: 'A tool that enables researchers to create FAIR metadata for their datasets using simple, guided templates without requiring deep technical knowledge.',
     url: 'https://fairds.famenl.org',
   },
   {
     name: 'FAIR Data Points',
     initials: 'FDP',
+    photo: '/platforms/fair-data-points.jpg',
     description: 'A metadata repository that exposes dataset descriptions in a standardised, machine-readable way, enabling discovery and access across distributed research infrastructures.',
     url: 'https://docs.fairdatapoint.org',
   },
   {
     name: 'OMERO',
     initials: 'OM',
+    photo: '/platforms/omero.jpg',
     description: 'An open-source platform for managing, visualising, and analysing biological microscopy images. A key tool for bioimaging metadata integration within FAMENL.',
     url: 'https://www.openmicroscopy.org/omero/',
   },
@@ -37,27 +41,47 @@ const platforms = [
         FAMENL builds on and aligns with established open platforms for research data management,
         metadata exchange, and FAIR compliance across life science domains.
       </p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;">
+      <div id="platforms-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;">
         {platforms.map(p => (
           <a
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;text-decoration:none;display:flex;flex-direction:column;gap:.75rem;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;"
+            style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;"
             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.1)'"
             onmouseout="this.style.transform='';this.style.boxShadow=''"
           >
-            <div style="display:flex;align-items:center;gap:.9rem;">
-              <div style="flex-shrink:0;width:44px;height:44px;border-radius:10px;background:var(--green-xl);color:var(--green);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;">
+            <div style="position:relative;height:140px;overflow:hidden;">
+              <img
+                src={p.photo}
+                alt={p.name}
+                style="width:100%;height:100%;object-fit:cover;"
+                onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
+              />
+              <div style="display:none;width:100%;height:100%;background:var(--green);color:#fff;font-weight:700;font-size:2rem;align-items:center;justify-content:center;">
                 {p.initials}
               </div>
-              <h2 style="font-size:1.05rem;font-weight:600;color:var(--text);">{p.name}</h2>
             </div>
-            <p style="font-size:.9rem;color:var(--muted);line-height:1.6;">{p.description}</p>
-            <span style="font-size:.8rem;color:var(--accent);margin-top:auto;">{p.url.replace(/^https?:\/\//, '')} ↗</span>
+            <div style="padding:1.25rem;display:flex;flex-direction:column;gap:.6rem;flex:1;">
+              <h2 style="font-size:1.05rem;font-weight:600;color:var(--text);">{p.name}</h2>
+              <p style="font-size:.88rem;color:var(--muted);line-height:1.6;">{p.description}</p>
+              <span style="font-size:.8rem;color:var(--accent);margin-top:auto;">{p.url.replace(/^https?:\/\//, '')} ↗</span>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  const grid = document.getElementById('platforms-grid');
+  if (grid) {
+    const cards = [...grid.children];
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      grid.appendChild(cards[j]);
+      cards.splice(j, 1);
+    }
+  }
+</script>
