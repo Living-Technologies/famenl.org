@@ -67,7 +67,7 @@ const members = [
         The people driving FAMENL forward, bringing expertise in bioinformatics, knowledge representation, and
         research infrastructure.
       </p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;">
+      <div id="team-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;">
         {members.map(m => (
           <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);text-align:center;">
             <div style="background:var(--green-xl);padding:2rem 2rem 1.25rem;">
@@ -99,3 +99,15 @@ const members = [
     </div>
   </section>
 </Layout>
+
+<script>
+  const grid = document.getElementById('team-grid');
+  if (grid) {
+    const cards = [...grid.children];
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      grid.appendChild(cards[j]);
+      cards.splice(j, 1);
+    }
+  }
+</script>
