@@ -5,7 +5,7 @@ const platforms = [
   {
     name: 'FAIRDOM-SEEK',
     initials: 'SK',
-    photo: '/platforms/fairdom-seek.jpg',
+    photo: '/platforms/fairdom-seek.svg',
     description: 'A web-based resource for sharing scientific research assets. Used as the integrated platform for managing experimental metadata across life science research infrastructures.',
     url: 'https://seek.famenl.org',
   },
@@ -19,14 +19,14 @@ const platforms = [
   {
     name: 'FAIR Data Points',
     initials: 'FDP',
-    photo: '/platforms/fair-data-points.jpg',
+    photo: '/platforms/fair-data-points.png',
     description: 'A metadata repository that exposes dataset descriptions in a standardised, machine-readable way, enabling discovery and access across distributed research infrastructures.',
     url: 'https://docs.fairdatapoint.org',
   },
   {
     name: 'OMERO',
     initials: 'OM',
-    photo: '/platforms/omero.jpg',
+    photo: '/platforms/omero.png',
     description: 'An open-source platform for managing, visualising, and analysing biological microscopy images. A key tool for bioimaging metadata integration within FAMENL.',
     url: 'https://www.openmicroscopy.org/omero/',
   },
@@ -51,11 +51,11 @@ const platforms = [
             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.1)'"
             onmouseout="this.style.transform='';this.style.boxShadow=''"
           >
-            <div style="position:relative;height:140px;overflow:hidden;">
+            <div style="position:relative;height:140px;overflow:hidden;background:var(--white);display:flex;align-items:center;justify-content:center;padding:1rem;">
               <img
                 src={p.photo}
                 alt={p.name}
-                style="width:100%;height:100%;object-fit:cover;"
+                style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"
                 onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
               />
               <div style="display:none;width:100%;height:100%;background:var(--green);color:#fff;font-weight:700;font-size:2rem;align-items:center;justify-content:center;">

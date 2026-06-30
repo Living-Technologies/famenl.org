@@ -5,36 +5,42 @@ const partners = [
   {
     name: 'hDMT-INFRA-StemCells',
     initials: 'hD',
+    photo: '/partners/hdmt.jpg',
     url: 'https://www.hdmt.technology/',
     nodes: ['UMC Utrecht', 'Leiden UMC'],
   },
   {
     name: 'NEMI',
     initials: 'NE',
+    photo: '/partners/nemi.jpg',
     url: 'https://nemi.microscopie.nl/',
     nodes: ['UMC Groningen', 'University of Maastricht'],
   },
   {
     name: 'NL-BioImaging',
     initials: 'NB',
+    photo: '/partners/nl-bioimaging.jpg',
     url: 'https://eurobioimaging.nl/',
     nodes: ['Amsterdam UMC', 'UMC Groningen', 'University of Leiden', 'LUMC', 'University of Maastricht'],
   },
   {
     name: 'UNLOCK',
     initials: 'UL',
+    photo: '/partners/unlock.svg',
     url: 'https://m-unlock.com/',
     nodes: ['Wageningen University & Research', 'Delft University of Technology'],
   },
   {
     name: 'Wageningen University & Research',
     initials: 'WUR',
+    photo: '/partners/wur.jpg',
     url: 'https://www.wur.nl',
     nodes: ['Laboratory of Systems and Synthetic Biology'],
   },
   {
     name: 'X-OMICS',
     initials: 'XO',
+    photo: '/partners/x-omics.jpg',
     url: 'https://x-omics.nl',
     nodes: ['Radboud UMC'],
   },
@@ -52,13 +58,23 @@ const partners = [
       <div id="partners-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;">
         {partners.map(p => (
           <a href={p.url} target="_blank" rel="noopener noreferrer"
-            style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1rem;text-align:center;box-shadow:var(--shadow);text-decoration:none;display:block;transition:transform .15s,box-shadow .15s;"
+            style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;"
             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.1)'"
             onmouseout="this.style.transform='';this.style.boxShadow=''">
-            <div style="width:48px;height:48px;border-radius:50%;background:var(--green-xl);color:var(--green);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem;">
-              {p.initials}
+            <div style="height:100px;display:flex;align-items:center;justify-content:center;padding:.75rem;background:var(--white);">
+              <img
+                src={p.photo}
+                alt={p.name}
+                style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"
+                onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
+              />
+              <div style="display:none;width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;align-items:center;justify-content:center;">
+                {p.initials}
+              </div>
             </div>
-            <span style="font-size:.9rem;font-weight:600;color:var(--text);">{p.name}</span>
+            <div style="padding:.75rem 1rem;border-top:1px solid var(--border);">
+              <span style="font-size:.85rem;font-weight:600;color:var(--text);">{p.name}</span>
+            </div>
           </a>
         ))}
       </div>
