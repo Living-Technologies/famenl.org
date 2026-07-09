@@ -1,80 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const members = [
-  {
-    name: 'Dr. J.J. Koehorst',
-    role: 'Assistant Professor',
-    affiliation: 'Wageningen University & Research',
-    affiliationUrl: 'https://www.wur.nl',
-    bio: 'Expert on FAIR By Design research in the world of microbial systems and experimental metadata.',
-    photo: '/team/jasper-koehorst.jpg',
-    initials: 'JK',
-  },
-  {
-    name: 'Dr. K. Wolstencroft',
-    role: 'Associate Professor',
-    affiliation: 'Amsterdam UMC',
-    affiliationUrl: 'https://www.amsterdamumc.nl',
-    bio: 'Expert on FAIR data and knowledge integration, and reproducible research in omics and bioimaging.',
-    photo: '/team/katherine-wolstencroft.jpg',
-    initials: 'KW',
-  },
-  {
-    name: 'Dr. B. Metcalfe',
-    role: 'Postdoc',
-    affiliation: 'Wageningen University & Research',
-    affiliationUrl: 'https://www.wur.nl',
-    bio: 'Expert on computer systems, architectures and network integration.',
-    photo: '/team/b-metcalfe.jpg',
-    initials: 'BM',
-  },
-  {
-    name: 'Dr. P. de Boer',
-    role: 'Data Steward',
-    affiliation: 'UMCG',
-    affiliationUrl: 'https://www.umcg.nl',
-    bio: 'Expert on data management in light and electron microscopy.',
-    photo: '/team/p-de-boer.jpg',
-    initials: 'PdB',
-  },
-  {
-    name: 'Dr. S. van Beuningen',
-    role: 'Assistant Professor',
-    affiliation: 'UMC Utrecht',
-    affiliationUrl: 'https://www.umcutrecht.nl',
-    bio: 'Expert on data science and data management.',
-    photo: '/team/s-van-beuningen.jpg',
-    initials: 'SvB',
-  },
-  {
-    name: "Prof. Dr. P. 't Hoen",
-    role: 'Full Professor',
-    affiliation: 'Radboud UMC',
-    affiliationUrl: 'https://www.radboudumc.nl',
-    bio: 'Expert on bioinformatics and data integration.',
-    photo: "/team/p-t-hoen.jpg",
-    initials: "PtH",
-  },
-  {
-    name: 'Dr. V. Kasalica',
-    role: 'Interoperability Expert',
-    affiliation: 'TDCC-LSH',
-    affiliationUrl: 'https://www.tdcc.nl',
-    bio: 'Expert on Data Interoperability, FAIR research software and workflows.',
-    photo: '/team/vedran-kasalica.jpg',
-    initials: 'VK',
-  },
-  {
-    name: 'Dr. W. Baccinelli',
-    role: 'Interoperability Expert',
-    affiliation: 'TDCC-LSH',
-    affiliationUrl: 'https://www.tdcc.nl',
-    bio: 'Expert on Interoperability, research software and infrastructures.',
-    photo: '/team/walter-baccinelli.jpg',
-    initials: 'WB',
-  }
-];
+import members from '../data/team.json';
 ---
 <Layout title="Team">
   <section>
@@ -87,7 +13,7 @@ const members = [
       </p>
       <div id="team-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;">
         {members.map(m => (
-          <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);text-align:center;">
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);text-align:center;display:flex;flex-direction:column;height:100%;">
             <div style="background:var(--green-xl);padding:2rem 2rem 1.25rem;">
               {/* Swap src for a real photo once available — falls back to initials circle */}
               <div style="width:96px;height:96px;border-radius:50%;margin:0 auto;overflow:hidden;border:3px solid var(--white);box-shadow:0 2px 8px rgba(0,0,0,.12);">
@@ -104,11 +30,34 @@ const members = [
                 </div>
               </div>
             </div>
-            <div style="padding:1rem 1.25rem 1.5rem;">
+            <div style="padding:1rem 1.25rem 1.5rem;display:flex;flex-direction:column;flex:1;">
               <h2 style="font-size:1rem;font-weight:600;margin-bottom:.25rem;">{m.name}</h2>
               <div style="font-size:.875rem;color:var(--accent);font-weight:500;margin-bottom:.2rem;">{m.role}</div>
               <a href={m.affiliationUrl} target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:var(--muted);margin-bottom:.6rem;display:block;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">{m.affiliation}</a>
               <div style="font-size:.85rem;color:var(--muted);line-height:1.5;">{m.bio}</div>
+              {(m.orcid || m.linkedin || m.website) && (
+                <div style="display:flex;justify-content:center;gap:.6rem;margin-top:auto;padding-top:.85rem;">
+                  {m.orcid && (
+                    <a href={m.orcid} target="_blank" rel="noopener noreferrer" aria-label={`${m.name} on ORCID`} title="ORCID" style="display:inline-flex;align-items:center;">
+                      <img src="/icons/orcid.gif" width="16" height="16" alt="ORCID" />
+                    </a>
+                  )}
+                  {m.linkedin && (
+                    <a href={m.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${m.name} on LinkedIn`} title="LinkedIn" style="display:inline-flex;align-items:center;">
+                      <img src="/icons/linkedin.png" width="16" height="16" alt="LinkedIn" />
+                    </a>
+                  )}
+                  {m.website && (
+                    <a href={m.website} target="_blank" rel="noopener noreferrer" aria-label={`${m.name} personal website`} title="Website" style="display:inline-flex;color:var(--muted);transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}

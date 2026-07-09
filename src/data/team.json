@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Dr. J.J. Koehorst",
+    "role": "Assistant Professor",
+    "affiliation": "Wageningen University & Research",
+    "affiliationUrl": "https://www.wur.nl",
+    "bio": "Expert on FAIR By Design research in the world of microbial systems and experimental metadata.",
+    "photo": "/team/jasper-koehorst.jpg",
+    "initials": "JK",
+    "orcid": "https://orcid.org/0000-0001-8172-8981",
+    "linkedin": "https://www.linkedin.com/in/jasperkoehorst/",
+    "website": "https://koehorst.io"
+  },
+  {
+    "name": "Dr. K. Wolstencroft",
+    "role": "Associate Professor",
+    "affiliation": "Amsterdam UMC",
+    "affiliationUrl": "https://www.amsterdamumc.nl",
+    "bio": "Expert on FAIR data and knowledge integration, and reproducible research in omics and bioimaging.",
+    "photo": "/team/katherine-wolstencroft.jpg",
+    "initials": "KW",
+    "orcid": "https://orcid.org/0000-0002-1279-5133",
+    "linkedin": "https://www.linkedin.com/in/katy-wolstencroft-28060813/",
+    "website": ""
+  },
+  {
+    "name": "Dr. B. Metcalfe",
+    "role": "Postdoc",
+    "affiliation": "Wageningen University & Research",
+    "affiliationUrl": "https://www.wur.nl",
+    "bio": "Expert on computer systems, architectures and network integration.",
+    "photo": "/team/b-metcalfe.jpg",
+    "initials": "BM",
+    "orcid": "https://orcid.org/0000-0002-5873-9815",
+    "linkedin": "https://www.linkedin.com/in/brett-metcalfe-a2b95738/",
+    "website": ""
+  },
+  {
+    "name": "Dr. P. de Boer",
+    "role": "Data Steward",
+    "affiliation": "UMCG",
+    "affiliationUrl": "https://www.umcg.nl",
+    "bio": "Expert on data management in light and electron microscopy.",
+    "photo": "/team/p-de-boer.jpg",
+    "initials": "PdB",
+    "orcid": "https://orcid.org/0000-0001-6989-2252",
+    "linkedin": "https://www.linkedin.com/in/pascal-de-boer-7064177b/",
+    "website": ""
+  },
+  {
+    "name": "Dr. S. van Beuningen",
+    "role": "Assistant Professor",
+    "affiliation": "UMC Utrecht",
+    "affiliationUrl": "https://www.umcutrecht.nl",
+    "bio": "Expert on data science and data management.",
+    "photo": "/team/s-van-beuningen.jpg",
+    "initials": "SvB",
+    "orcid": "https://orcid.org/0000-0001-6166-196X",
+    "linkedin": "https://www.linkedin.com/in/svbeuningen",
+    "website": ""
+  },
+  {
+    "name": "Prof. Dr. P. 't Hoen",
+    "role": "Full Professor",
+    "affiliation": "Radboud UMC",
+    "affiliationUrl": "https://www.radboudumc.nl",
+    "bio": "Expert on bioinformatics and data integration.",
+    "photo": "/team/p-t-hoen.jpg",
+    "initials": "PtH",
+    "orcid": "",
+    "linkedin": "https://www.linkedin.com/in/peter-bram-t-hoen-1b6b9a18/",
+    "website": ""
+  },
+  {
+    "name": "Dr. V. Kasalica",
+    "role": "Interoperability Expert",
+    "affiliation": "TDCC-LSH",
+    "affiliationUrl": "https://www.tdcc.nl",
+    "bio": "Expert on Data Interoperability, FAIR research software and workflows.",
+    "photo": "/team/vedran-kasalica.jpg",
+    "initials": "VK",
+    "orcid": "https://orcid.org/0000-0002-0097-1056",
+    "linkedin": "https://www.linkedin.com/in/kasalica/",
+    "website": ""
+  },
+  {
+    "name": "Dr. W. Baccinelli",
+    "role": "Interoperability Expert",
+    "affiliation": "TDCC-LSH",
+    "affiliationUrl": "https://www.tdcc.nl",
+    "bio": "Expert on Interoperability, research software and infrastructures.",
+    "photo": "/team/walter-baccinelli.jpg",
+    "initials": "WB",
+    "orcid": "https://orcid.org/0000-0001-8888-4792",
+    "linkedin": "https://www.linkedin.com/in/walter-baccinelli/",
+    "website": ""
+  }
+]
